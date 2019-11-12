@@ -1,11 +1,14 @@
 import React from 'react';
 import {Text, View, StyleSheet,TextInput} from 'react-native';
 
-const Input = ({children}) => {
+const Input = (props) => {
   return(
     <View style={styles.viewStyle}>
-     <Text style={styles.textStyle}>{children}</Text>
-      <TextInput style={styles.inputStyle}/>
+      <TextInput
+        style={styles.inputStyle}
+        placeholder={props.placeholder}
+        value={props.value}
+      />
     </View>
   );
 }
@@ -14,7 +17,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 30,
+    margin: 15,
     padding: 2
   },
   textStyle : {
@@ -23,15 +27,18 @@ const styles = StyleSheet.create({
     flex: 1
   },
   inputStyle : {
-    flex: 2,
+    width: 250,
     fontSize: 16,
     lineHeight: 30,
-    height: 20,
+    height: 30,
     color: '#000000',
     paddingLeft: 4,
     paddingRight: 4,
     borderWidth: 1,
     borderColor: '#007aff',
+    borderRadius: 10,
+    margin: 5,
+    paddingLeft: 5
 
   }
 });

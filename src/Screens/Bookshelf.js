@@ -124,7 +124,7 @@ const styles = StyleSheet.create(
         justifyContent: 'center',
         alignItems: 'center',
         padding: 15
-    },
+    }
 });
 
 export default Bookshelf;

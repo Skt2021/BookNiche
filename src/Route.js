@@ -8,10 +8,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {SearchBar} from 'react-native-elements';
 
 import Home from './Screens/Home';
-import Bookshelf from './Screens/Bookshelf';
 import Profile from './Screens/Profile';
-import Login from './Screens/Login';
+import HomeScreen from './Screens/HomeScreen';
 import BookForm from './Screens/BookForm';
+import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
+import LoginScreen from './Screens/LoginScreen';
+import RegisterScreen from './Screens/RegisterScreen';
+import Bookshelf from './Screens/Bookshelf';
 
 const Tabs = createMaterialTopTabNavigator({
   Home: Home,
@@ -33,8 +36,9 @@ const Tabs = createMaterialTopTabNavigator({
 const StackNavigator = createStackNavigator(
   {
     DashboardTabNavigator: Tabs,
-    BookForm: BookForm
-  },{
+    BookForm: BookForm,
+  },
+  {
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerTitle: "BookNiche",
@@ -66,7 +70,16 @@ const DrawerNavigator = createDrawerNavigator({
 
 const SwitchNavigator = createSwitchNavigator({
   Login : {
-    screen : Login
+    screen : HomeScreen
+  },
+  LoginScreen : {
+    screen : LoginScreen
+  },
+  RegisterScreen : {
+    screen : RegisterScreen
+  },
+  ForgotPasswordScreen : {
+    screen : ForgotPasswordScreen
   },
   Home : {
     screen : DrawerNavigator

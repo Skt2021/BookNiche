@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {View,StyleSheet,TextInput} from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
-//import Header from '../Components/Header';
 import Input from '../Components/Input';
 
 class Login extends Component{

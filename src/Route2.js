@@ -69,17 +69,8 @@ const DrawerNavigator = createDrawerNavigator({
 });
 
 const SwitchNavigator = createSwitchNavigator({
-  Login : {
-    screen : HomeScreen
-  },
-  LoginScreen : {
-    screen : LoginScreen
-  },
-  RegisterScreen : {
-    screen : RegisterScreen
-  },
-  ForgotPasswordScreen : {
-    screen : ForgotPasswordScreen
+  Home : {
+    screen : DrawerNavigator
   }
 });
 const styles = StyleSheet.create({

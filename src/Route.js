@@ -16,77 +16,20 @@ import LoginScreen from './Screens/LoginScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import Bookshelf from './Screens/Bookshelf';
 
-const Tabs = createMaterialTopTabNavigator({
-  Home: Home,
-  Bookshelf: Bookshelf,
-  Profile : Profile
-},{
-  tabBarOptions: {
-    activeTintColor: '#000',
-    inactiveTintColor: 'gray',
-    style: {
-      backgroundColor : '#fff',
-    },
-    indicatorStyle: {
-      backgroundColor : '#000'
-    }
-  }
-});
 
-const StackNavigator = createStackNavigator(
+
+const SwitchNavigator = createStackNavigator(
   {
-    DashboardTabNavigator: Tabs,
-    BookForm: BookForm,
+    HomeScreen,
+    LoginScreen,
+    RegisterScreen,
+    ForgotPasswordScreen
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerTitle: "BookNiche",
-        headerLeft: (
-          <Icon style={{ paddingLeft: 10 }}
-          onPress={() => navigation.openDrawer()}
-          name="md-menu" size={30} />
-        ),
-        headerRight: (
-          <View style={styles.viewStyle}>
-            <Icon style={{ paddingRight: 15, paddingTop: 5 }}
-            onPress={() => {console.log("a")}}
-            name="md-search" size={30} />
-          </View>
-        )
-    };
+    initialRouteName: 'HomeScreen',
+    headerMode: 'none',
   }
-});
-
-const DrawerNavigator = createDrawerNavigator({
-  Home :{
-    screen : StackNavigator,
-    navigationOptions: {
-      title : 'BookNiche',
-      drawerLabel: 'BookNiche',
-    }
-  }
-});
-
-const SwitchNavigator = createSwitchNavigator({
-  Login : {
-    screen : HomeScreen
-  },
-  LoginScreen : {
-    screen : LoginScreen
-  },
-  RegisterScreen : {
-    screen : RegisterScreen
-  },
-  ForgotPasswordScreen : {
-    screen : ForgotPasswordScreen
-  }
-});
-const styles = StyleSheet.create({
-  viewStyle : {
-    flexDirection : 'row',
-  }
-});
+);
 
 const AppContainer = createAppContainer(SwitchNavigator);
 export default AppContainer;

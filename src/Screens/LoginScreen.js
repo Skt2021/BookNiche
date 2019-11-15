@@ -24,12 +24,13 @@ const LoginScreen = ({ navigation }) => {
       return;
     }
     // Hard code   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-    firebase.auth().signInWithEmailAndPassword('ppp@gmail.com', 'pppgmail')
+    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
       .catch(() => {
             // this.setState({error : 'Authentication Failed'});
             console.log("Error");
           });
-
+    
+    
     // navigation.navigate('Home');
   };
 

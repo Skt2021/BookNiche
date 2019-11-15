@@ -6,11 +6,13 @@ import Route from './src/Route';
 import Route2 from './src/Route2';
 import reducers from './src/reducers';
 import firebase from 'firebase';
+import {Loading} from './src/Screens'
+
 
 
 export default class App extends Component{
   
-  state={loggedIn:false};
+  state={loggedIn:null};
 
   componentWillMount(){
     firebase.initializeApp({
@@ -42,6 +44,8 @@ export default class App extends Component{
          );
       case false:
         return <Route/> ;
+      default:
+        return <Loading />
     }
   }
   render(){
@@ -51,4 +55,5 @@ export default class App extends Component{
       </Provider>
     );
   }
-}
+} 
+

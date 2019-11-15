@@ -8,6 +8,7 @@ const Input = (props) => {
         style={styles.inputStyle}
         placeholder={props.placeholder}
         value={props.value}
+        onChangeText={props.onChangeText}
       />
     </View>
   );

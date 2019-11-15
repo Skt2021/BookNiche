@@ -15,6 +15,7 @@ import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
 import LoginScreen from './Screens/LoginScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import Bookshelf from './Screens/Bookshelf';
+import CustomDrawerNavigator from './Components/CustomDrawerNavigator';
 
 const Tabs = createMaterialTopTabNavigator({
   Home: Home,
@@ -61,12 +62,11 @@ const StackNavigator = createStackNavigator(
 const DrawerNavigator = createDrawerNavigator({
   Home :{
     screen : StackNavigator,
-    navigationOptions: {
-      title : 'BookNiche',
-      drawerLabel: 'BookNiche',
-    }
-  }
-});
+  },
+  Profile :{
+    screen : Profile
+  }}
+);
 
 const SwitchNavigator = createSwitchNavigator({
   Login : {

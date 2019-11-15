@@ -3,11 +3,15 @@ import {View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Route from './src/Route';
+import Route2 from './src/Route2';
 import reducers from './src/reducers';
 import firebase from 'firebase';
 
 
 export default class App extends Component{
+  
+  state={loggedIn:false};
+
   componentWillMount(){
     firebase.initializeApp({
         apiKey: "AIzaSyA41KpyAY9VltWTTDjNZcUFxluPJm3YCqo",
@@ -19,11 +23,31 @@ export default class App extends Component{
         appId: "1:108526055963:web:c883c511360122e7443ebe",
         measurementId: "G-2SXVKLNW5D"
     });
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user){
+        console.log("LoggedIn");
+        console.log(user.email);
+        this.setState( {loggedIn : true});
+      }else{
+        console.log("Logged Out");
+        this.setState({ loggedIn : false});
+      }
+    });
+  }
+    renderContent(){
+    switch (this.state.loggedIn) {
+      case true:
+        return(
+         <Route2/>
+         );
+      case false:
+        return <Route/> ;
+    }
   }
   render(){
     return(
       <Provider store={createStore(reducers)}>
-        <Route />
+       {this.renderContent()} 
       </Provider>
     );
   }

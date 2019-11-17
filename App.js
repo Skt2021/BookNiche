@@ -10,7 +10,6 @@ import firebase from 'firebase';
 import {Loading} from './src/Screens'
 
 
-
 export default class App extends Component{
   
   state={loggedIn:null};
@@ -41,7 +40,7 @@ export default class App extends Component{
     switch (this.state.loggedIn) {
       case true:
         return(
-         <Route2/>
+          <Route2/>
          );
       case false:
         return <Route/> ;

@@ -5,7 +5,7 @@ import Book from '../Components/Book';
 
 class Bookshelf extends Component
 {
-    constructor()
+  /* constructor()
     {
         super();
 
@@ -18,7 +18,6 @@ class Bookshelf extends Component
 
     addMore = () =>
     {
-        console.log("Added");
         this.animatedValue.setValue(0);
 
         let newlyAddedValue = { index: this.index }
@@ -38,11 +37,11 @@ class Bookshelf extends Component
                 this.setState({ disabled: false });
             });
         });
-    }
+    }*/
 
     render()
     {
-        const animationValue = this.animatedValue.interpolate(
+      /*  const animationValue = this.animatedValue.interpolate(
         {
             inputRange: [ 0, 1 ],
             outputRange: [ -59, 0 ]
@@ -63,26 +62,18 @@ class Bookshelf extends Component
                 return(
                   /*  <View key = { key } style = { styles.viewHolder }>
                         <Text style = { styles.text }>Row { item.index }</Text>
-                    </View>*/
+                    </View>
                     <Book />
                 );
             }
-        });
+        });*/
 
         return(
-            <View style = { styles.container }>
-                <ScrollView>
-                    <View style = {{ flex: 1, padding: 4 }}>
-                    {
-                        newArray
-                    }
-                    </View>
-                </ScrollView>
-
+           <View style = { styles.container }>
                     <Icon
                       name = "ios-add-circle-outline"
                       style = {styles.btn}
-                      disabled = { this.state.disabled }
+                      disabled = { false }
                       onPress = {() => this.props.navigation.navigate('BookForm')}
                       size = {50}/>
             </View>

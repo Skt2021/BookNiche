@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore,applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import Route from './src/Route';
 import Route2 from './src/Route2';
 import reducers from './src/reducers';
@@ -9,7 +10,7 @@ import firebase from 'firebase';
 
 
 export default class App extends Component{
-  
+
   state={loggedIn:false};
 
   componentWillMount(){
@@ -46,8 +47,8 @@ export default class App extends Component{
   }
   render(){
     return(
-      <Provider store={createStore(reducers)}>
-       {this.renderContent()} 
+      <Provider store={createStore(reducers,{}, applyMiddleware(ReduxThunk))}>
+       {this.renderContent()}
       </Provider>
     );
   }

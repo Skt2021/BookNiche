@@ -5,8 +5,10 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case "add_book":
+    case "update_Book":
       return {...state,[action.payload.prop]: action.payload.value}
+      case "add_Book":
+      return INITIAL_STATE;
     default:
       return state;
   }

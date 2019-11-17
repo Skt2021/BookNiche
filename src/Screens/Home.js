@@ -1,19 +1,38 @@
+import _ from 'lodash';
 import React,{Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {FlatList, StyleSheet, Text, View } from 'react-native';
+import {connect} from 'react-redux';
+import {bookFetch} from '../actions/BookActions';
 import Book from '../Components/Book';
-import { SearchBar } from 'react-native-elements';
+
 
 class Home extends Component {
+  componentWillMount(){
+    this.props.bookFetch();
+  }
+  renderRow({item}) {
+    console.log(item);
+    return (<Book library={item}
+                  name = {item.name}
+                  author = {item.author}
+                  />);
+  }
   render(){
     return (
-      <View>
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-      </View>
+      <FlatList
+        data= {this.props.Books}
+        renderItem ={this.renderRow}
+        />
     );
   }
-}
+};
 
-export default Home;
+const mapStateToProps = state => {
+  const Books = _.map(state.Books,(val)=>{
+    return{...val}
+  });
+  console.log(Books);
+  return {Books};
+};
+
+export default connect(mapStateToProps,{bookFetch})(Home);

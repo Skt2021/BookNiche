@@ -1,11 +1,11 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 
-const SubmitButton = ({children, onPress}) => {
+const SubmitButton = (props) => {
   return(
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={props.onPress}>
       <View style={styles.viewStyle}>
-        <Text style={styles.textStyle}>{children}</Text>
+        <Text style={styles.textStyle}>{props.children}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: '600',
     padding: 10,
-  
+
   }
 });
 export default SubmitButton;

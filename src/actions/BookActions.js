@@ -8,9 +8,9 @@ export const update_Book = ({prop, value}) => {
 };
 
 export const add_Book = ({name, author}) => {
-
+  const {currentUser} = firebase.auth();
   return ()=>{
-    firebase.database().ref('/users/Books')
+    firebase.database().ref(`/users/${currentUser.uid}/Books`)
     .push({name, author})
     .then(()=> {
       dispatch({type: 'add_Book'});

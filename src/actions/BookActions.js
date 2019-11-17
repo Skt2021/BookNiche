@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase,{storage} from 'firebase';
 import { Actions } from 'react-native-router-flux';
 export const update_Book = ({prop, value}) => {
   return {
@@ -9,20 +9,48 @@ export const update_Book = ({prop, value}) => {
 
 export const add_Book = ({name, author}) => {
   const {currentUser} = firebase.auth();
-  return ()=>{
+  return (dispatch)=>{
     firebase.database().ref(`/users/${currentUser.uid}/Books`)
     .push({name, author})
     .then(()=> {
       dispatch({type: 'add_Book'});
-      Actions.Bookshelf()});
+      Actions.pop()});
   };
 };
 
-export const bookFetch = () => {
+/*export const bookFetch = () => {
+  const {currentUser} = firebase.auth();
   return(dispatch) => {
-    firebase.database().ref('/users/Books')
+    firebase.database().ref(`/users/Books`)
       .on('value',snapshot => {
+        console.log(snapshot.val());
         dispatch({type: 'book_Fetch_Success',payload: snapshot.val()});
       });
+  };
+};*/
+
+export const bookFetch = () => {
+  const {currentUser} = firebase.auth();
+  var ref = firebase.database().ref("users/Books").orderByKey();
+  return (dispatch) =>{
+    ref.once('value')
+      .then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+            var id = childSnapshot.key;
+            snapshot.forEach(function(id){
+                dispatch({type: 'book_Fetch_Success',payload: id.val()});
+            });
+          });
+});
+};
+};
+export const add_BookList = ({name, author}) => {
+  const {currentUser} = firebase.auth();
+  return(dispatch) => {
+    firebase.database().ref(`/users/Books/${currentUser.uid}`)
+    .push({name, author})
+    .then(()=> {
+      dispatch({type: 'add_Book'});
+    });
   };
 };

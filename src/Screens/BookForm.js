@@ -1,17 +1,23 @@
 import React,{Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
-import { update_Book, add_Book } from '../actions/BookActions';
+import { update_Book, add_Book, add_BookList } from '../actions/BookActions';
 import Input from '../Components/Input';
 import SubmitButton from '../Components/SubmitButton';
 
 class BookForm extends Component{
   onButtonPress() {
+<<<<<<< HEAD
+    const {name ,author} = this.props;
+    this.props.add_Book({name, author});
+    this.props.add_BookList({name, author});
+=======
      const {name } = this.props;
     // this.props.add_Book({name, author});
    this.props.navigation.navigate('SearchHelp',{
      name: name
    });
+>>>>>>> 001ed4dd49dc865baac4a5cff3e8191470bbaf05
   }
   render(){
     return(
@@ -44,4 +50,4 @@ const mapStateToProps = (state) => {
     return {name};
 };
 
-export default connect(mapStateToProps,{update_Book, add_Book})(BookForm);
+export default connect(mapStateToProps,{update_Book, add_Book, add_BookList})(BookForm);

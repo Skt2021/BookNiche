@@ -11,7 +11,6 @@ class Home extends Component {
     this.props.bookFetch();
   }
   renderRow({item}) {
-    console.log(item);
     return (<Book library={item}
                   name = {item.name}
                   author = {item.author}
@@ -31,7 +30,6 @@ const mapStateToProps = state => {
   const Books = _.map(state.Books,(val)=>{
     return{...val}
   });
-  console.log(Books);
   return {Books};
 };
 

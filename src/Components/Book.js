@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, ImageBackground} from 'react-native';
 
 const Book = (props) => {
-  if (props.imgLink === undefined)
+  if (props.imgLink === undefined || props.imgLink===null && props.name !== undefined && props.name!==null)
   {
      return(
     <View style={styles.viewStyle}>
@@ -14,6 +14,9 @@ const Book = (props) => {
       </View>
     </View>
   );
+  } else if (props.imgLink === undefined || props.imgLink === null)
+  {
+    
   }
   return(
     <View style={styles.viewStyle}>

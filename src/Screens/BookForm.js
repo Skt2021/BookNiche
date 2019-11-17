@@ -7,8 +7,9 @@ import SubmitButton from '../Components/SubmitButton';
 
 class BookForm extends Component{
   onButtonPress() {
-    const {name ,author} = this.props;
-    this.props.add_Book({name, author});
+    // const {name ,author} = this.props;
+    // this.props.add_Book({name, author});
+    this.props.navigation.navigate('Profile');
   }
   render(){
     return(

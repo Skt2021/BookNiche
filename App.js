@@ -12,13 +12,8 @@ import {Loading} from './src/Screens'
 
 
 export default class App extends Component{
-<<<<<<< HEAD
-
-  state={loggedIn:false};
-=======
   
   state={loggedIn:null};
->>>>>>> 5799ab18a7f7e184a8c46c065335c3be7ae0f6b7
 
   componentWillMount(){
     firebase.initializeApp({

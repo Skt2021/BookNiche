@@ -7,9 +7,17 @@ import SubmitButton from '../Components/SubmitButton';
 
 class BookForm extends Component{
   onButtonPress() {
+<<<<<<< HEAD
     const {name ,author} = this.props;
     this.props.add_Book({name, author});
     this.props.add_BookList({name, author});
+=======
+     const {name } = this.props;
+    // this.props.add_Book({name, author});
+   this.props.navigation.navigate('SearchHelp',{
+     name: name
+   });
+>>>>>>> 001ed4dd49dc865baac4a5cff3e8191470bbaf05
   }
   render(){
     return(
@@ -19,11 +27,11 @@ class BookForm extends Component{
           value = {this.props.name}
           onChangeText={text => this.props.update_Book({prop: 'name', value: text})}
         />
-        <Input
+        {/* <Input
           placeholder= "Author"
           value = {this.props.author}
           onChangeText={text => this.props.update_Book({prop: 'author', value: text})}
-        />
+        />  */}
         <SubmitButton onPress={()=>this.onButtonPress()}>Submit</SubmitButton>
       </View>
     );
@@ -38,8 +46,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-    const {name, author} = state.BookReducer;
-    return {name, author};
+    const {name} = state.BookReducer;
+    return {name};
 };
 
 export default connect(mapStateToProps,{update_Book, add_Book, add_BookList})(BookForm);

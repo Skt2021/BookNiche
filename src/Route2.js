@@ -15,7 +15,7 @@ import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
 import LoginScreen from './Screens/LoginScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import Bookshelf from './Screens/Bookshelf';
-
+import SearchHelp from './Screens/SearchHelp';
 const Tabs = createMaterialTopTabNavigator({
   Home: Home,
   Bookshelf: Bookshelf,
@@ -37,6 +37,7 @@ const StackNavigator = createStackNavigator(
   {
     DashboardTabNavigator: Tabs,
     BookForm: BookForm,
+    SearchHelp : SearchHelp
   },
   {
     defaultNavigationOptions: ({ navigation }) => {

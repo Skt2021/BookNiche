@@ -1,6 +1,5 @@
 const INITIAL_STATE = {
   name: '',
-  author: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

@@ -18,4 +18,18 @@ Specifications:
 * One can also request the book in advance (in case it is already borrowed by someone & person doesn’t want to take a chance)
 * Admin will have a different account in which he/she can keep a track of all the activities & prevent the negative use of the platform.
 
+DFD : 
+
+![dfd](https://user-images.githubusercontent.com/38361186/69029741-d13b7f00-09fb-11ea-8bad-07bf9f04459d.png)
+
+USE CASE DIAGRAM : 
+
 ![UseCaseDiagram](https://user-images.githubusercontent.com/38361186/69029563-56726400-09fb-11ea-991a-c410f78faa3a.png)
+
+CLASS DIAGRAM :
+
+![Class Diagram](https://user-images.githubusercontent.com/38361186/69029755-d698c980-09fb-11ea-855f-538bab7fd95e.png)
+
+PERT CHART:
+
+![PERT](https://user-images.githubusercontent.com/38361186/69029761-dbf61400-09fb-11ea-8840-a17d3337fdb9.png)

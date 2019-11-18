@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, ImageBackground,TouchableOpacity} from 'react-native';
 
 const Book = (props) => {
-  if (props.imgLink === undefined || props.imgLink===null && props.name !== undefined && props.name!==null)
+  if (props.imgLink === undefined || props.imgLink === null && props.name !== undefined && props.name !== null && props.author ===undefined || props.author ===null)
   {
      return(
       <TouchableOpacity onPress={props.onPress}>
@@ -10,13 +10,38 @@ const Book = (props) => {
       <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
       </ImageBackground>
       <View style = {styles.rightcontainer}>
-        <Text style={styles.title}>{props.name}</Text>
-        <Text style={styles.author}>{props.author}</Text>
+        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+        <Text style={styles.author}>Author Unknown</Text>
       </View>
     </View>
     </TouchableOpacity>
   );
-  } else if (props.imgLink === undefined || props.imgLink === null)
+  } else if (props.imgLink === undefined || props.imgLink === null && props.name !== undefined && props.name !== null && props.author !== undefined && props.author !== null)
+  {
+    return(
+        <View style={styles.viewStyle}>
+          <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
+          </ImageBackground>
+          <View style = {styles.rightcontainer}>
+            <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+            <Text style={styles.author}>{props.author[0]}</Text>
+          </View>
+        </View>
+      );
+  } else if (props.imgLink !== undefined && props.imgLink !== null && props.name !== undefined && props.name !== null && props.author === undefined || props.author === null)
+  {
+    return(
+    <View style={styles.viewStyle}>
+      <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
+      </ImageBackground>
+      <View style = {styles.rightcontainer}>
+        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+        <Text style={styles.author}>Author Unknown</Text>
+      </View>
+    </View>
+  );
+  }
+  else if (props.imgLink === undefined || props.imgLink === null && props.name === undefined || props.name === null && props.author ===undefined || props.author===null)
   {
 
   }
@@ -26,8 +51,8 @@ const Book = (props) => {
       <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
       </ImageBackground>
       <View style = {styles.rightcontainer}>
-        <Text style={styles.title}>{props.name}</Text>
-        <Text style={styles.author}>{props.author}</Text>
+        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+        <Text style={styles.author}>{props.author[0]}</Text>
       </View>
     </View>
     </TouchableOpacity>

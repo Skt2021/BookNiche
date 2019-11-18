@@ -50,6 +50,7 @@ import Book from '../Components/Book';
 
               // if (item.volumeInfo.imageLinks !== undefined)
               // {
+<<<<<<< HEAD
                 <Book name={item.volumeInfo.title}
                       author={item.volumeInfo.authors[0]}
                       imgLink={item.volumeInfo.imageLinks}
@@ -61,6 +62,9 @@ import Book from '../Components/Book';
                         description: item.volumeInfo.description,
                       })} />
 
+=======
+                <Book name={item.volumeInfo.title} author={item.volumeInfo.authors} imgLink={item.volumeInfo.imageLinks}/>
+>>>>>>> faaedc80d3d88599a3d129f32b83eee2255a8990
               // }
               // else
               // {

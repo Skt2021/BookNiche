@@ -17,3 +17,5 @@ Specifications:
 * When a book is borrowed/lent, there’ll be an entry of book along with details of borrower & lender in the seperate sheet, that can be     viewed by each person.
 * One can also request the book in advance (in case it is already borrowed by someone & person doesn’t want to take a chance)
 * Admin will have a different account in which he/she can keep a track of all the activities & prevent the negative use of the platform.
+
+![UseCaseDiagram](https://user-images.githubusercontent.com/38361186/69029563-56726400-09fb-11ea-991a-c410f78faa3a.png)

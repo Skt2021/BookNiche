@@ -7,6 +7,7 @@ import Book from '../Components/Book';
 
   constructor(props){
     super(props);
+
     this.state ={ isLoading: true}
   }
 
@@ -31,7 +32,7 @@ import Book from '../Components/Book';
   }
 
   render(){
- 
+
     if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
@@ -45,11 +46,21 @@ import Book from '../Components/Book';
         <FlatList
           data={this.state.dataSource}
           renderItem={
-            ({item}) => 
-            
+            ({item}) =>
+
               // if (item.volumeInfo.imageLinks !== undefined)
               // {
-                <Book name={item.volumeInfo.title} author={item.volumeInfo.authors[0]} imgLink={item.volumeInfo.imageLinks}/>
+                <Book name={item.volumeInfo.title}
+                      author={item.volumeInfo.authors[0]}
+                      imgLink={item.volumeInfo.imageLinks}
+                      onPress={()=>this.props.navigation.navigate('BookDetails',
+                      {
+                        name : item.volumeInfo.title,
+                        author: item.volumeInfo.authors[0],
+                        imgLink: item.volumeInfo.imageLinks.thumbnail,
+                        description: item.volumeInfo.description,
+                      })} />
+
               // }
               // else
               // {

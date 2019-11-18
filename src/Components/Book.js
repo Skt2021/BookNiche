@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet, ImageBackground} from 'react-native';
+import {Text, View, StyleSheet, ImageBackground,TouchableOpacity} from 'react-native';
 
 const Book = (props) => {
   if (props.imgLink === undefined || props.imgLink===null && props.name !== undefined && props.name!==null)
   {
      return(
+      <TouchableOpacity onPress={props.onPress}>
     <View style={styles.viewStyle}>
       <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
       </ImageBackground>
@@ -13,12 +14,14 @@ const Book = (props) => {
         <Text style={styles.author}>{props.author}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
   } else if (props.imgLink === undefined || props.imgLink === null)
   {
-    
+
   }
   return(
+    <TouchableOpacity onPress={props.onPress}>
     <View style={styles.viewStyle}>
       <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
       </ImageBackground>
@@ -27,6 +30,7 @@ const Book = (props) => {
         <Text style={styles.author}>{props.author}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
 }
 

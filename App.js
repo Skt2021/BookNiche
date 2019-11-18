@@ -11,11 +11,7 @@ import {Loading} from './src/Screens'
 
 
 export default class App extends Component{
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 001ed4dd49dc865baac4a5cff3e8191470bbaf05
   state={loggedIn:null};
 
   componentWillMount(){

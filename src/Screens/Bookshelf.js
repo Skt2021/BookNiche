@@ -17,6 +17,7 @@ class Bookshelf extends Component
                   name = {item.name}
                   author = {item.author}
                   imgLink = {item.imgLink}
+                  onPress={()=>item.navigation.navigate('BookDetails')}
                   /> );
   }
     render()
@@ -79,6 +80,7 @@ const mapStateToProps = state => {
   const Books = _.map(state.Books,(val)=>{
     return{...val}
   });
+  console.log(Books);
   return {Books};
 };
 

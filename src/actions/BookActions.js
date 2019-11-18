@@ -23,7 +23,7 @@ export const bookFetch = () => {
   return(dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/Books`)
       .on('value',snapshot => {
-        console.log(snapshot.val());
+      /*  console.log(snapshot.val());*/
         dispatch({type: 'book_Fetch_Success',payload: snapshot.val()});
       });
   };

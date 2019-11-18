@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import _ from 'lodash';
 import {connect} from 'react-redux';
 import {bookFetch} from '../actions/BookActions';
-import Book from '../Components/Book';
+import Book2 from '../Components/Book2';
 
 
 class Bookshelf extends Component
@@ -13,7 +13,8 @@ class Bookshelf extends Component
     this.props.bookFetch();
   }
   renderRow({item}) {
-    return (<Book library={item}
+      console.log(item.imgLink);
+    return (<Book2 library={item}
                   name = {item.name}
                   author = {item.author}
                   imgLink = {item.imgLink}

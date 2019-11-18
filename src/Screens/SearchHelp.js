@@ -7,7 +7,6 @@ import Book from '../Components/Book';
 
   constructor(props){
     super(props);
-
     this.state ={ isLoading: true}
   }
 
@@ -32,7 +31,7 @@ import Book from '../Components/Book';
   }
 
   render(){
-
+ 
     if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
@@ -47,8 +46,6 @@ import Book from '../Components/Book';
           data={this.state.dataSource}
           renderItem={
             ({item}) =>
-
-
                 <Book name={item.volumeInfo.title}
                       author={item.volumeInfo.authors}
                       imgLink={item.volumeInfo.imageLinks}

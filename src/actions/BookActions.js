@@ -7,7 +7,7 @@ export const update_Book = ({prop, value}) => {
   };
 };
 
-export const add_Book = ({name, author, description, imgLink}) => {
+export const add_Book = ({name, author, description="null", imgLink}) => {
   const {currentUser} = firebase.auth();
   return (dispatch)=>{
     firebase.database().ref(`/users/${currentUser.uid}/Books`)

@@ -45,10 +45,7 @@ import Book from '../Components/Book';
         <FlatList
           data={this.state.dataSource}
           renderItem={
-            ({item}) => 
-            
-              // if (item.volumeInfo.imageLinks !== undefined)
-              // {
+            ({item}) =>
                 <Book name={item.volumeInfo.title}
                       author={item.volumeInfo.authors}
                       imgLink={item.volumeInfo.imageLinks}
@@ -59,6 +56,7 @@ import Book from '../Components/Book';
                         imgLink: item.volumeInfo.imageLinks.thumbnail,
                         description: item.volumeInfo.description,
                       })} />
+
               // }
               // else
               // {

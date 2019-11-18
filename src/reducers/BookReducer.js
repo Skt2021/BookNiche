@@ -1,5 +1,8 @@
 const INITIAL_STATE = {
   name: '',
+  author:'',
+   description:'',
+   imgLink:''
 };
 
 export default (state = INITIAL_STATE, action) => {

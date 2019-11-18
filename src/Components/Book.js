@@ -1,71 +1,42 @@
 import React from 'react';
-import {Text, View, StyleSheet, ImageBackground} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import {Text, View, StyleSheet, ImageBackground,TouchableOpacity} from 'react-native';
 
 const Book = (props) => {
   if (props.imgLink === undefined || props.imgLink === null && props.name !== undefined && props.name !== null && props.author ===undefined || props.author ===null)
   {
      return(
-       <View>
+      <TouchableOpacity onPress={props.onPress}>
+    <View style={styles.viewStyle}>
+      <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
+      </ImageBackground>
+      <View style = {styles.rightcontainer}>
+        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+        <Text style={styles.author}>Author Unknown</Text>
+      </View>
+    </View>
+    </TouchableOpacity>
+  );
+  } else if (props.imgLink === undefined || props.imgLink === null && props.name !== undefined && props.name !== null && props.author !== undefined && props.author !== null)
+  {
+    return(
         <View style={styles.viewStyle}>
           <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
           </ImageBackground>
           <View style = {styles.rightcontainer}>
             <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
-            <Text style={styles.author}>Author Unknown</Text>
-          </View>
-        </View>
-            <View>
-          <Icon
-              name = "ios-add-circle-outline"
-              style = {styles.btn}
-              disabled = { false }
-              onPress = {() => this.props.navigation.navigate('BookForm')}
-              size = {30}/>
-        </View>
-       </View>
-  );
-  } else if (props.imgLink === undefined || props.imgLink === null && props.name !== undefined && props.name !== null && props.author !== undefined && props.author !== null)
-  {
-    return(
-        <View>
-          <View style={styles.viewStyle}>
-            <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
-            </ImageBackground>
-            <View style = {styles.rightcontainer}>
-              <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
-              <Text style={styles.author}>{props.author[0]}</Text>
-            </View>
-          </View>
-          <View>
-            <Icon
-                name = "ios-add-circle-outline"
-                style = {styles.btn}
-                disabled = { false }
-                onPress = {() => this.props.navigation.navigate('BookForm')}
-              size = {30}/>
+            <Text style={styles.author}>{props.author[0]}</Text>
           </View>
         </View>
       );
   } else if (props.imgLink !== undefined && props.imgLink !== null && props.name !== undefined && props.name !== null && props.author === undefined || props.author === null)
   {
     return(
-    <View>
-      <View style={styles.viewStyle}>
-        <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
-        </ImageBackground>
-        <View style = {styles.rightcontainer}>
-          <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
-          <Text style={styles.author}>Author Unknown</Text>
-        </View>
-      </View>
-      <View>
-        <Icon
-              name = "ios-add-circle-outline"
-              style = {styles.btn}
-              disabled = { false }
-              onPress = {() => this.props.navigation.navigate('BookForm')}
-              size = {30}/>
+    <View style={styles.viewStyle}>
+      <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
+      </ImageBackground>
+      <View style = {styles.rightcontainer}>
+        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+        <Text style={styles.author}>Author Unknown</Text>
       </View>
     </View>
   );
@@ -75,24 +46,16 @@ const Book = (props) => {
 
   }
   return(
-    <View>
-      <View style={styles.viewStyle}>
-        <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
-        </ImageBackground>
-        <View style = {styles.rightcontainer}>
-          <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
-          <Text style={styles.author}>{props.author[0]}</Text>
-        </View>
-      </View>
-      <View>
-        <Icon
-          name = "ios-add-circle-outline"
-          style = {styles.btn}
-          disabled = { false }
-          onPress = {() => this.props.navigation.navigate('BookForm')}
-          size = {30}/>
+    <TouchableOpacity onPress={props.onPress}>
+    <View style={styles.viewStyle}>
+      <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
+      </ImageBackground>
+      <View style = {styles.rightcontainer}>
+        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+        <Text style={styles.author}>{props.author[0]}</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
 }
 
@@ -123,16 +86,6 @@ const styles = StyleSheet.create({
   },
   author : {
     color : '#656565'
-  },
-  btn:
-    {
-        position: 'absolute',
-        right: 10,
-        bottom: 5,
-        borderRadius: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 5
-    }
+  }
 });
 export default Book;

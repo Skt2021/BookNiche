@@ -49,7 +49,16 @@ import Book from '../Components/Book';
             
               // if (item.volumeInfo.imageLinks !== undefined)
               // {
-                <Book name={item.volumeInfo.title} author={item.volumeInfo.authors} imgLink={item.volumeInfo.imageLinks}/>
+                <Book name={item.volumeInfo.title}
+                      author={item.volumeInfo.authors}
+                      imgLink={item.volumeInfo.imageLinks}
+                      onPress={()=>this.props.navigation.navigate('BookDetails',
+                      {
+                        name : item.volumeInfo.title,
+                        author: item.volumeInfo.authors,
+                        imgLink: item.volumeInfo.imageLinks.thumbnail,
+                        description: item.volumeInfo.description,
+                      })} />
               // }
               // else
               // {

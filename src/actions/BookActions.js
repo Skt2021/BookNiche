@@ -7,11 +7,11 @@ export const update_Book = ({prop, value}) => {
   };
 };
 
-export const add_Book = ({name, author}) => {
+export const add_Book = ({name, author, description, imgLink}) => {
   const {currentUser} = firebase.auth();
   return (dispatch)=>{
     firebase.database().ref(`/users/${currentUser.uid}/Books`)
-    .push({name, author})
+    .push({name, author, description, imgLink})
     .then(()=> {
       dispatch({type: 'add_Book'});
       Actions.pop()});

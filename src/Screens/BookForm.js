@@ -7,12 +7,12 @@ import SubmitButton from '../Components/SubmitButton';
 
 class BookForm extends Component{
   onButtonPress() {
-     const {name } = this.props;
+       const {name } = this.props;
     // this.props.add_Book({name, author});
    this.props.navigation.navigate('SearchHelp',{
      name: name
    });
-  }
+ }
   render(){
     return(
       <View style={styles.viewStyle}>

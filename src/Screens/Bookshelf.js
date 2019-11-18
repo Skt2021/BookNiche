@@ -1,75 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text, Platform, StyleSheet, TouchableOpacity, Animated, ScrollView, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, Text, Platform, StyleSheet, TouchableOpacity, Animated, ScrollView, Image,FlatList } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
+import _ from 'lodash';
+import {connect} from 'react-redux';
+import {bookFetch} from '../actions/BookActions';
 import Book from '../Components/Book';
+
 
 class Bookshelf extends Component
 {
-  /* constructor()
-    {
-        super();
-
-        this.state = { valueArray: [], disabled: false,promptVisible : true }
-
-        this.index = 0;
-
-        this.animatedValue = new Animated.Value(0);
-    }
-
-    addMore = () =>
-    {
-        this.animatedValue.setValue(0);
-
-        let newlyAddedValue = { index: this.index }
-
-        this.setState({ disabled: true, valueArray: [ ...this.state.valueArray, newlyAddedValue ] }, () =>
-        {
-            Animated.timing(
-                this.animatedValue,
-                {
-                    toValue: 1,
-                    duration: 500,
-                    useNativeDriver: true
-                }
-            ).start(() =>
-            {
-                this.index = this.index + 1;
-                this.setState({ disabled: false });
-            });
-        });
-    }*/
-
+  componentWillMount(){
+    this.props.bookFetch();
+  }
+  renderRow({item}) {
+    return (<Book library={item}
+                  name = {item.name}
+                  author = {item.author}
+                  imgLink = {item.imgLink}
+                  /> );
+  }
     render()
     {
-      /*  const animationValue = this.animatedValue.interpolate(
-        {
-            inputRange: [ 0, 1 ],
-            outputRange: [ -59, 0 ]
-        });
-
-        let newArray = this.state.valueArray.map(( item, key ) =>
-        {
-            if(( key ) == this.index)
-            {
-                return(
-                  <View>
-                    <Book />
-                  </View>
-                );
-            }
-            else
-            {
-                return(
-                  /*  <View key = { key } style = { styles.viewHolder }>
-                        <Text style = { styles.text }>Row { item.index }</Text>
-                    </View>
-                    <Book />
-                );
-            }
-        });*/
 
         return(
            <View style = { styles.container }>
+                   <FlatList
+                     data= {this.props.Books}
+                     renderItem ={this.renderRow}
+                     />
                     <Icon
                       name = "ios-add-circle-outline"
                       style = {styles.btn}
@@ -117,5 +75,11 @@ const styles = StyleSheet.create(
         padding: 15
     }
 });
+const mapStateToProps = state => {
+  const Books = _.map(state.Books,(val)=>{
+    return{...val}
+  });
+  return {Books};
+};
 
-export default Bookshelf;
+export default connect(mapStateToProps,{bookFetch})(Bookshelf);

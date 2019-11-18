@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {bookFetch} from '../actions/BookActions';
 import Book from '../Components/Book';
 
- 
+
 class Home extends Component {
   componentWillMount(){
     this.props.bookFetch();
@@ -14,6 +14,7 @@ class Home extends Component {
     return (<Book library={item}
                   name = {item.name}
                   author = {item.author}
+                  imgLink = {item.imgLink}
                   />);
   }
   render(){

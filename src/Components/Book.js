@@ -19,6 +19,7 @@ const Book = (props) => {
   } else if (props.imgLink === undefined || props.imgLink === null && props.name !== undefined && props.name !== null && props.author !== undefined && props.author !== null)
   {
     return(
+      <TouchableOpacity onPress={props.onPress}>
         <View style={styles.viewStyle}>
           <ImageBackground source={{uri: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'}}  style={styles.viewImg}>
           </ImageBackground>
@@ -27,10 +28,12 @@ const Book = (props) => {
             <Text style={styles.author}>{props.author[0]}</Text>
           </View>
         </View>
+        </TouchableOpacity>
       );
   } else if (props.imgLink !== undefined && props.imgLink !== null && props.name !== undefined && props.name !== null && props.author === undefined || props.author === null)
   {
     return(
+      <TouchableOpacity onPress={props.onPress}>
     <View style={styles.viewStyle}>
       <ImageBackground source={{uri: props.imgLink.smallThumbnail}}  style={styles.viewImg}>
       </ImageBackground>
@@ -39,6 +42,7 @@ const Book = (props) => {
         <Text style={styles.author}>Author Unknown</Text>
       </View>
     </View>
+    </TouchableOpacity>
   );
   }
   else if (props.imgLink === undefined || props.imgLink === null && props.name === undefined || props.name === null && props.author ===undefined || props.author===null)

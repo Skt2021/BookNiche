@@ -18,7 +18,7 @@ class Bookshelf extends Component
                   name = {item.name}
                   author = {item.author}
                   imgLink = {item.imgLink}
-                  /> );
+                  /> ); 
   }
     render()
     {

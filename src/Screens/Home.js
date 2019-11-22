@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import {FlatList, StyleSheet, Text, View } from 'react-native';
 import {connect} from 'react-redux';
 import {bookFetch} from '../actions/BookActions';
-import Book from '../Components/Book';
+import Book2 from '../Components/Book2';
 
 
 class Home extends Component {
@@ -11,7 +11,7 @@ class Home extends Component {
     this.props.bookFetch();
   }
   renderRow({item}) {
-    return (<Book library={item}
+    return (<Book2 library={item}
                   name = {item.name}
                   author = {item.author}
                   imgLink = {item.imgLink}

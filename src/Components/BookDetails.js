@@ -14,6 +14,7 @@ class BookDetails extends Component{
   onButtonPress() {
        const {name, author, description, imgLink } = this.props.navigation.state.params;
        this.props.add_Book({name, author, description, imgLink});
+       this.props.navigation.navigate('Bookshelf');
  }
 
   render(){

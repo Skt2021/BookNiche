@@ -16,14 +16,14 @@ export default class App extends Component{
 
   componentWillMount(){
     firebase.initializeApp({
-      apiKey: "AIzaSyA2wKhIyV9Bb63eTii6YgYEu8FSEbOw9L0",
-      authDomain: "bookniche-575eb.firebaseapp.com",
-      databaseURL: "https://bookniche-575eb.firebaseio.com",
-      projectId: "bookniche-575eb",
-      storageBucket: "bookniche-575eb.appspot.com",
-      messagingSenderId: "124894432583",
-      appId: "1:124894432583:web:4a31702c3275b1dcd95062",
-      measurementId: "G-26HE8C320X"
+      apiKey: "AIzaSyA41KpyAY9VltWTTDjNZcUFxluPJm3YCqo",
+        authDomain: "first-project-cd1e9.firebaseapp.com",
+        databaseURL: "https://first-project-cd1e9.firebaseio.com",
+        projectId: "first-project-cd1e9",
+        storageBucket: "first-project-cd1e9.appspot.com",
+        messagingSenderId: "108526055963",
+        appId: "1:108526055963:web:c883c511360122e7443ebe",
+        measurementId: "G-2SXVKLNW5D"
     });
     firebase.auth().onAuthStateChanged((user)=>{
       if(user){

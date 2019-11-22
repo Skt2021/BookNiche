@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Text,View,StyleSheet,ImageBackground,ScrollView} from 'react-native';
 import { connect } from 'react-redux';
-import { update_Book, add_Book, add_BookList } from '../actions/BookActions';
+import { update_Book, add_Book, add_BookList, delete_Book } from '../actions/BookActions';
 
 import SubmitButton from './SubmitButton';
 
@@ -11,10 +11,22 @@ class BookDetails extends Component{
     super(props);
     this.state ={ isLoading: true}
   }
-  onButtonPress() {
+  onButtonPress(children) {
        const {name, author, description, imgLink } = this.props.navigation.state.params;
-       this.props.add_Book({name, author, description, imgLink});
-       this.props.navigation.navigate('Bookshelf');
+     
+      //  console.log(this.props.navigation.state);
+      if(children === 'Delete')
+      {
+        console.log("Delete");
+      }else if (children==="Request Book")
+      {
+        console.log("Request");
+      }else if (children === "Add Book")
+      {
+           this.props.add_Book({name, author, description, imgLink});
+           this.props.navigation.navigate('Bookshelf');
+      }
+      // this.props.delete_Book(this.props.navigation.state);
  }
 
   render(){
@@ -32,7 +44,7 @@ class BookDetails extends Component{
       <Text style={{fontSize : 16}}>{this.props.navigation.getParam('description')}</Text>
       </ScrollView>
       <View style={styles.btn}>
-      <SubmitButton onPress={ ()=>this.onButtonPress()}>
+      <SubmitButton onPress={ ()=>this.onButtonPress(this.props.navigation.getParam('children'))}>
         {this.props.navigation.getParam('children')}
       </SubmitButton>
       </View>
@@ -76,4 +88,4 @@ const mapStateToProps = (state) => {
     return {name, author, description, imgLink};
 };
 
-export default connect(mapStateToProps,{add_Book})(BookDetails);
+export default connect(mapStateToProps,{add_Book, delete_Book})(BookDetails);

@@ -14,6 +14,7 @@ class BookDetails extends Component{
   onButtonPress() {
        const {name, author, description, imgLink } = this.props.navigation.state.params;
        this.props.add_Book({name, author, description, imgLink});
+       this.props.navigation.navigate('Bookshelf');
  }
 
   render(){
@@ -32,7 +33,7 @@ class BookDetails extends Component{
       </ScrollView>
       <View style={styles.btn}>
       <SubmitButton onPress={ ()=>this.onButtonPress()}>
-        Add Book
+        {this.props.navigation.getParam('children')}
       </SubmitButton>
       </View>
       </View>

@@ -11,7 +11,6 @@ import Book from '../Components/Book';
   }
 
   componentDidMount(){
-    console.log();
     const searchVar = this.props.navigation.getParam('name');
     const searchStr = 'https://www.googleapis.com/books/v1/volumes?q=intitle:'+searchVar+'&key=AIzaSyBJJnoxF6AbBMivwnrCezUbdD43kItkp7c';
     return fetch(searchStr)
@@ -31,7 +30,7 @@ import Book from '../Components/Book';
   }
 
   render(){
- 
+
     if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
@@ -55,6 +54,7 @@ import Book from '../Components/Book';
                         author: item.volumeInfo.authors,
                         imgLink: item.volumeInfo.imageLinks.thumbnail,
                         description: item.volumeInfo.description,
+                        children : "Add Book"
                       })} />
 
               // }

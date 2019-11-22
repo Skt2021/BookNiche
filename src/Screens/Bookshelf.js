@@ -12,15 +12,14 @@ class Bookshelf extends Component
   componentWillMount(){
     this.props.bookFetch();
   }
-  renderRow({item}) {
-      console.log(item.imgLink);
+/*  renderRow({item}) {
     return (<Book2 library={item}
                   name = {item.name}
                   author = {item.author}
                   imgLink = {item.imgLink}
                   onPress={()=>item.navigation.navigate('BookDetails')}
                   /> );
-  }
+  }*/
     render()
     {
 
@@ -28,7 +27,20 @@ class Bookshelf extends Component
            <View style = { styles.container }>
                    <FlatList
                      data= {this.props.Books}
-                     renderItem ={this.renderRow}
+                     renderItem ={
+                       ({item}) =>
+                           <Book2 name={item.name}
+                                 author={item.author}
+                                 imgLink={item.imageLink}
+                                 onPress={()=>this.props.navigation.navigate('BookDetails',
+                                 {
+                                   name : item.name,
+                                   author: item.author,
+                                   imgLink: item.imageLink,
+                                   description: item.description,
+                                   children : "Delete"
+                                 })} />
+                     }
                      />
                     <Icon
                       name = "ios-add-circle-outline"
@@ -81,7 +93,6 @@ const mapStateToProps = state => {
   const Books = _.map(state.Books,(val)=>{
     return{...val}
   });
-  console.log(Books);
   return {Books};
 };
 

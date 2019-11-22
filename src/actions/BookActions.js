@@ -4,7 +4,7 @@ export const update_Book = ({prop, value}) => {
   return {
     type: "update_Book",
     payload: {prop, value}
-  };
+  }; 
 };
 
 export const add_Book = ({name, author, description="null", imgLink}) => {

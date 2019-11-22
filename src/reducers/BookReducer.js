@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
-  name: '',
-  author:'',
-   description:'null',
+  name: ' ',
+  author:' ',
+   description:' ',
    imgLink:''
 };
 

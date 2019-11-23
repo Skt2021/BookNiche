@@ -2,16 +2,25 @@ import React from 'react';
 import {Text, View, StyleSheet, ImageBackground,TouchableOpacity} from 'react-native';
 
 const Book2 = (props) => {
+  console.log(props.userEmail);
   return(
     <TouchableOpacity onPress={props.onPress}>
-    <View style={styles.viewStyle}>
-      <ImageBackground source={{uri: props.imgLink}}  style={styles.viewImg}>
-      </ImageBackground>
-      <View style = {styles.rightcontainer}>
-        <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
-        <Text style={styles.author}>{props.author[0]}</Text>
+      <View>
+          <View>
+            <Text>
+              { props.userEmail}
+            </Text>
+          </View>
+          <View style={styles.viewStyle}>
+          <ImageBackground source={{uri: props.imgLink}}  style={styles.viewImg}>
+          </ImageBackground>
+          <View style = {styles.rightcontainer}>
+            <Text style={styles.title}>{props.name.substring(0,48)}..</Text>
+            <Text style={styles.author}>{props.author[0]}</Text>
+          </View>
+        </View>
       </View>
-    </View>
+
     </TouchableOpacity>
   );
 }

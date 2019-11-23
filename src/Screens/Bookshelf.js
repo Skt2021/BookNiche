@@ -32,12 +32,14 @@ class Bookshelf extends Component
                            <Book2 name={item.name}
                                  author={item.author}
                                  imgLink={item.imgLink}
+                                 userEmail ={item.userEmail}
                                  onPress={()=>this.props.navigation.navigate('BookDetails',
                                  {
                                    name : item.name,
                                    author: item.author,
                                    imgLink: item.imgLink,
                                    description: item.description,
+                                   userEmail : item.userEmail,
                                    children : "Delete"
                                  })} />
                      }

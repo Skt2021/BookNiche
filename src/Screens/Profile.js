@@ -12,7 +12,7 @@ class Profile extends Component{
           <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
         <View style={styles.body}>
           <View style={styles.bodyContent}>
-            <Text style={styles.name}>Prakhar Gupta</Text>
+            <Text style={styles.name}>John Doe</Text>
             <Text style={styles.info}>UX Designer / Mobile developer</Text>
             <Text style={styles.address}>GEC Sector 28, Gandhinagar</Text>
             

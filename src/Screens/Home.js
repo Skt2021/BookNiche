@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React,{Component} from 'react';
 import {FlatList, StyleSheet, Text, View } from 'react-native';
 import {connect} from 'react-redux';
-import {bookFetch} from '../actions/BookActions';
+import {bookFetch,bookFetchAll} from '../actions/BookActions';
 import Book2 from '../Components/Book2';
 
 
@@ -26,12 +26,14 @@ class Home extends Component {
               <Book2 name={item.name}
                     author={item.author}
                     imgLink={item.imgLink}
+                    userEmail = {item.userEmail}
                     onPress={()=>this.props.navigation.navigate('BookDetails',
                     {
                       name : item.name,
                       author: item.author,
                       imgLink: item.imgLink,
                       description: item.description,
+                      userEmail : item.userEmail,
                       children : "Request Book"
                     })} />
         }
@@ -47,4 +49,4 @@ const mapStateToProps = state => {
   return {Books};
 };
 
-export default connect(mapStateToProps,{bookFetch})(Home);
+export default connect(mapStateToProps,{bookFetch,bookFetchAll})(Home);

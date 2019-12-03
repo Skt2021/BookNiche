@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {Text,View,StyleSheet,ImageBackground,ScrollView} from 'react-native';
 import { connect } from 'react-redux';
 import { update_Book, add_Book, add_BookList, delete_Book } from '../actions/BookActions';
-import firebase from 'firebase'
+
 import SubmitButton from './SubmitButton';
 
 class BookDetails extends Component{
@@ -12,7 +12,7 @@ class BookDetails extends Component{
     this.state ={ isLoading: true}
   }
   onButtonPress(children) {
-       const {name, author, description, imgLink, userEmail } = this.props.navigation.state.params;
+       const {name, author, description, imgLink } = this.props.navigation.state.params;
      
       //  console.log(this.props.navigation.state);
       if(children === 'Delete')
@@ -23,16 +23,12 @@ class BookDetails extends Component{
         console.log("Request");
       }else if (children === "Add Book")
       {
-        const {currentUser} = firebase.auth();
-        console.log(currentUser.email);
-        const userEmail = currentUser.email;
-
-           this.props.add_Book({name, author, description, imgLink, userEmail});
+           this.props.add_Book({name, author, description, imgLink});
            this.props.navigation.navigate('Bookshelf');
       }
+      this.props.navigation.navigate('Bookshelf');
       // this.props.delete_Book(this.props.navigation.state);
  }
-
 
   render(){
     return(

@@ -50,6 +50,13 @@ const StackNavigator = createStackNavigator(
           <Icon style={{ paddingLeft: 10 }}
           onPress={() => navigation.openDrawer()}
           name="md-menu" size={30} />
+        ),
+        headerRight: (
+          <View style={styles.viewStyle}>
+            <Icon style={{ paddingRight: 15, paddingTop: 5 }}
+            onPress={() => {console.log("a")}}
+            name="md-search" size={30} />
+          </View>
         )
     };
   }

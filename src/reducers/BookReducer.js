@@ -2,8 +2,7 @@ const INITIAL_STATE = {
   name: ' ',
   author:' ',
    description:' ',
-   imgLink:'',
-   userEmail:''
+   imgLink:''
 };
 
 export default (state = INITIAL_STATE, action) => {

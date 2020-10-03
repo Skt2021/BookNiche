@@ -2,7 +2,7 @@
 
 <h3>Overview:</h3>
 
-BookNiche is a book resource app which enables students of the institute to borrow and lend books from/to the fellow students. Institute library doesn’t always comprise of a wide range of books in which students have interest. Also in the growing institute like ours, there’s a lot of problems in library management and the range/variety of books available. So BookNiche platform will enable the students to make a niche/bookshelf of their own on the platform which will give students the option to view the variety of books owned by different students and can directly borrow or lend from/to them via the platform.
+BookNiche is a book resource app which enables students of the institute to borrow and lend books from/to the fellow students. Institute library doesn’t always comprise of a wide range of books in which students have interest. Also in the growing institute like ours, there’s a lot of problems in library management and the range/variety of books available.BookNiche platform will enable the students to make a niche/bookshelf of their own on the platform which will give students the option to view the variety of books owned by different students and can directly borrow or lend from/to them via the platform.
 
 <h3>Goals:</h3>
 
